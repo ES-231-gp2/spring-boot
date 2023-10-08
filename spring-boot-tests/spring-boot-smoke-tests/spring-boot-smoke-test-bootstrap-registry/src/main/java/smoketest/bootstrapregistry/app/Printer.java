@@ -16,6 +16,9 @@
 
 package smoketest.bootstrapregistry.app;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import smoketest.bootstrapregistry.external.svn.SubversionClient;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -25,8 +28,11 @@ import org.springframework.stereotype.Component;
 public class Printer {
 
 	Printer(@Value("${svn}") String svn, SubversionClient subversionClient) {
-		System.out.println("--- svn " + svn);
-		System.out.println("--- client " + subversionClient.getClass().getName());
+		Logger logger
+				= Logger.getLogger(
+				Printer.class.getName());
+		logger.log(Level.INFO, "--- svn " + svn);
+		logger.log(Level.INFO, "--- client " + subversionClient.getClass().getName());
 	}
 
 }

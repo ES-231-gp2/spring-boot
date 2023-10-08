@@ -182,11 +182,17 @@ public class CouchbaseProperties {
 		@DeprecatedConfigurationProperty(
 				reason = "SSL bundle support with spring.ssl.bundle and spring.couchbase.env.ssl.bundle should be used instead",
 				since = "3.1.0")
+		/**
+		 * @deprecated since 3.1.0
+		 */
 		public String getKeyStore() {
 			return this.keyStore;
 		}
 
 		@Deprecated(since = "3.1.0", forRemoval = true)
+		/**
+		 * @deprecated since 3.1.0
+		 */
 		public void setKeyStore(String keyStore) {
 			this.keyStore = keyStore;
 		}
@@ -195,11 +201,17 @@ public class CouchbaseProperties {
 		@DeprecatedConfigurationProperty(
 				reason = "SSL bundle support with spring.ssl.bundle and spring.couchbase.env.ssl.bundle should be used instead",
 				since = "3.1.0")
+		/**
+		 * @deprecated since 3.1.0
+		 */
 		public String getKeyStorePassword() {
 			return this.keyStorePassword;
 		}
 
 		@Deprecated(since = "3.1.0", forRemoval = true)
+		/**
+		 * @deprecated since 3.1.0
+		 */
 		public void setKeyStorePassword(String keyStorePassword) {
 			this.keyStorePassword = keyStorePassword;
 		}

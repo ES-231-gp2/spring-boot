@@ -34,11 +34,17 @@ public class MyProperties {
 
 	@Deprecated
 	@DeprecatedConfigurationProperty(replacement = "my.app.name")
+	/**
+	 * @deprecated
+	 */
 	public String getTarget() {
 		return this.name;
 	}
 
 	@Deprecated
+	/**
+	 * @deprecated
+	 */
 	public void setTarget(String target) {
 		this.name = target;
 	}

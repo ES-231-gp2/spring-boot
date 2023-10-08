@@ -35,6 +35,8 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
 import java.util.jar.Manifest;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -487,7 +489,10 @@ public class PropertiesLauncher extends Launcher {
 
 	private void debug(String message) {
 		if (Boolean.getBoolean(DEBUG)) {
-			System.out.println(message);
+			Logger logger
+					= Logger.getLogger(
+					PropertiesLauncher.class.getName());
+			logger.log(Level.INFO, message);
 		}
 	}
 

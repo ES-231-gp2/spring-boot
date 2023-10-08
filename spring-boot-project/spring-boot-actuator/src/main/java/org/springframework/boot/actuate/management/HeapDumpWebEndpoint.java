@@ -160,7 +160,7 @@ public class HeapDumpWebEndpoint {
 				this.dumpHeapMethod = ReflectionUtils.findMethod(diagnosticMXBeanClass, "dumpHeap", String.class,
 						Boolean.TYPE);
 			}
-			catch (Throwable ex) {
+			catch (Exception ex) {
 				throw new HeapDumperUnavailableException("Unable to locate HotSpotDiagnosticMXBean", ex);
 			}
 		}
@@ -202,7 +202,7 @@ public class HeapDumpWebEndpoint {
 				this.dumpHeapMethod = ReflectionUtils.findMethod(mxBeanClass, "triggerDumpToFile", String.class,
 						String.class);
 			}
-			catch (Throwable ex) {
+			catch (Exception ex) {
 				throw new HeapDumperUnavailableException("Unable to locate OpenJ9DiagnosticsMXBean", ex);
 			}
 		}

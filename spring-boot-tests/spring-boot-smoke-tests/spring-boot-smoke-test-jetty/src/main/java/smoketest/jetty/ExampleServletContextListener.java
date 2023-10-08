@@ -16,6 +16,9 @@
 
 package smoketest.jetty;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 
@@ -29,12 +32,18 @@ public class ExampleServletContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println("*** contextInitialized");
+		Logger logger
+				= Logger.getLogger(
+				ExampleServletContextListener.class.getName());
+		logger.log(Level.INFO, "*** contextInitialized");
 	}
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("*** contextDestroyed");
+		Logger logger
+				= Logger.getLogger(
+				ExampleServletContextListener.class.getName());
+		logger.log(Level.INFO, "*** contextDestroyed");
 	}
 
 }

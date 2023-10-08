@@ -105,7 +105,7 @@ public class PrometheusPushGatewayManager {
 		try {
 			this.pushGateway.pushAdd(this.registry, this.job, this.groupingKey);
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			logger.warn("Unexpected exception thrown by POST of metrics to Prometheus Pushgateway", ex);
 		}
 	}
@@ -114,7 +114,7 @@ public class PrometheusPushGatewayManager {
 		try {
 			this.pushGateway.push(this.registry, this.job, this.groupingKey);
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			logger.warn("Unexpected exception thrown by PUT of metrics to Prometheus Pushgateway", ex);
 		}
 	}
@@ -123,7 +123,7 @@ public class PrometheusPushGatewayManager {
 		try {
 			this.pushGateway.delete(this.job, this.groupingKey);
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			logger.warn("Unexpected exception thrown by DELETE of metrics from Prometheus Pushgateway", ex);
 		}
 	}

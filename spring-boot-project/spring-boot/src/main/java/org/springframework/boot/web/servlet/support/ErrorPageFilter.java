@@ -130,7 +130,7 @@ public class ErrorPageFilter implements Filter, ErrorPageRegistry, Ordered {
 				response.flushBuffer();
 			}
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			Throwable exceptionToHandle = ex;
 			if (ex instanceof ServletException servletException) {
 				Throwable rootCause = servletException.getRootCause();
@@ -303,7 +303,7 @@ public class ErrorPageFilter implements Filter, ErrorPageRegistry, Ordered {
 		try {
 			collection.add(ClassUtils.forName(className, null));
 		}
-		catch (Throwable ex) {
+		catch (Exception ignored) {
 		}
 	}
 

@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import org.springframework.util.Assert;
@@ -53,9 +55,12 @@ public class LogUpdateEvent extends UpdateEvent {
 	}
 
 	public void print() {
+		Logger logger
+				= Logger.getLogger(
+				LogUpdateEvent.class.getName());
 		switch (this.streamType) {
-			case STD_OUT -> System.out.println(this);
-			case STD_ERR -> System.err.println(this);
+			case STD_OUT -> logger.log(Level.INFO, this.toString());
+			case STD_ERR -> logger.log(Level.SEVERE, this.toString());
 		}
 	}
 

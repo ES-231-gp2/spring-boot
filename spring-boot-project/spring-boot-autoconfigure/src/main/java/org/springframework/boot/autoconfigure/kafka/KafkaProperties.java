@@ -840,11 +840,17 @@ public class KafkaProperties {
 		@DeprecatedConfigurationProperty(replacement = "spring.kafka.streams.state-store-cache-max-size",
 				since = "3.1.0")
 		@Deprecated(since = "3.1.0", forRemoval = true)
+		/**
+		 * @deprecated since 3.1.0
+		 */
 		public DataSize getCacheMaxSizeBuffering() {
 			return this.cacheMaxSizeBuffering;
 		}
 
 		@Deprecated(since = "3.1.0", forRemoval = true)
+		/**
+		 * @deprecated since 3.1.0
+		 */
 		public void setCacheMaxSizeBuffering(DataSize cacheMaxSizeBuffering) {
 			this.cacheMaxSizeBuffering = cacheMaxSizeBuffering;
 		}

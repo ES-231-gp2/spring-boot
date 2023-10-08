@@ -214,7 +214,10 @@ public class Handler extends URLStreamHandler {
 		}
 		catch (Exception ex) {
 			if (warning) {
-				System.err.println("WARNING: " + message);
+				Logger logger
+						= Logger.getLogger(
+						Handler.class.getName());
+				logger.log(Level.SEVERE, "WARNING: " + message);
 			}
 		}
 	}
@@ -444,7 +447,7 @@ public class Handler extends URLStreamHandler {
 			resetCachedUrlHandlers();
 			return true;
 		}
-		catch (Error ex) {
+		catch (Exception ex) {
 			return false;
 		}
 	}

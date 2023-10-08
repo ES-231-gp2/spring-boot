@@ -137,7 +137,7 @@ public class LogbackLoggingSystem extends AbstractLoggingSystem implements BeanF
 				SLF4JBridgeHandler.install();
 			}
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			// Ignore. No java.util.logging bridge is installed.
 		}
 	}
@@ -161,7 +161,7 @@ public class LogbackLoggingSystem extends AbstractLoggingSystem implements BeanF
 			removeDefaultRootHandler();
 			SLF4JBridgeHandler.uninstall();
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			// Ignore and continue
 		}
 	}
@@ -174,7 +174,7 @@ public class LogbackLoggingSystem extends AbstractLoggingSystem implements BeanF
 				rootLogger.removeHandler(handlers[0]);
 			}
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			// Ignore and continue
 		}
 	}

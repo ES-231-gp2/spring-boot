@@ -20,6 +20,7 @@ import java.beans.PropertyVetoException;
 import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -89,7 +90,7 @@ public final class DataSourceBuilder<T extends DataSource> {
 
 	private final ClassLoader classLoader;
 
-	private final Map<DataSourceProperty, String> values = new HashMap<>();
+	private final EnumMap<DataSourceProperty, String> values = new EnumMap<>(DataSourceProperty.class);
 
 	private Class<T> type;
 
@@ -338,7 +339,7 @@ public final class DataSourceBuilder<T extends DataSource> {
 
 	private static class MappedDataSourceProperties<T extends DataSource> implements DataSourceProperties<T> {
 
-		private final Map<DataSourceProperty, MappedDataSourceProperty<T, ?>> mappedProperties = new HashMap<>();
+		private final EnumMap<DataSourceProperty, MappedDataSourceProperty<T, ?>> mappedProperties = new EnumMap<>(DataSourceProperty.class);
 
 		private final Class<T> dataSourceType;
 
@@ -530,8 +531,8 @@ public final class DataSourceBuilder<T extends DataSource> {
 
 		ReflectionDataSourceProperties(Class<T> dataSourceType) {
 			Assert.state(dataSourceType != null, "No supported DataSource type found");
-			Map<DataSourceProperty, Method> getters = new HashMap<>();
-			Map<DataSourceProperty, Method> setters = new HashMap<>();
+			EnumMap<DataSourceProperty, Method> getters = new EnumMap<>(DataSourceProperty.class);
+			EnumMap<DataSourceProperty, Method> setters = new EnumMap<>(DataSourceProperty.class);
 			for (DataSourceProperty property : DataSourceProperty.values()) {
 				putIfNotNull(getters, property, property.findGetter(dataSourceType));
 				putIfNotNull(setters, property, property.findSetter(dataSourceType));

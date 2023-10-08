@@ -316,8 +316,6 @@ public class Restarter {
 		finally {
 			this.stopLock.unlock();
 		}
-		System.gc();
-		System.runFinalization();
 	}
 
 	private void cleanupCaches() {
@@ -344,7 +342,7 @@ public class Restarter {
 		try {
 			AnnotationUtils.clearCache();
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			clear(AnnotationUtils.class, "findAnnotationCache");
 			clear(AnnotationUtils.class, "annotatedInterfaceCache");
 		}

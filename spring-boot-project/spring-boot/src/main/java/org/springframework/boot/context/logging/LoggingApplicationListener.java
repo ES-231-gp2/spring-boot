@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiConsumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -342,7 +344,10 @@ public class LoggingApplicationListener implements GenericApplicationListener {
 			}
 			exceptionToReport = (exceptionToReport != null) ? exceptionToReport : ex;
 			// NOTE: We can't use the logger here to report the problem
-			System.err.println("Logging system failed to initialize using configuration from '" + logConfig + "'");
+			Logger logger
+					= Logger.getLogger(
+					LoggingApplicationListener.class.getName());
+			logger.log(Level.SEVERE, "Logging system failed to initialize using configuration from '" + logConfig + "'");
 			exceptionToReport.printStackTrace(System.err);
 			throw new IllegalStateException(ex);
 		}

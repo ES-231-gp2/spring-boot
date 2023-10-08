@@ -80,11 +80,17 @@ public class OtlpProperties extends StepRegistryProperties {
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
 	@DeprecatedConfigurationProperty(replacement = "management.opentelemetry.resource-attributes", since = "3.2.0")
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public Map<String, String> getResourceAttributes() {
 		return this.resourceAttributes;
 	}
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public void setResourceAttributes(Map<String, String> resourceAttributes) {
 		this.resourceAttributes = resourceAttributes;
 	}

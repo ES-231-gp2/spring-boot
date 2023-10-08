@@ -16,6 +16,9 @@
 
 package smoketest.propertyvalidation;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -40,10 +43,13 @@ public class SamplePropertyValidationApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		System.out.println("=========================================");
-		System.out.println("Sample host: " + this.properties.getHost());
-		System.out.println("Sample port: " + this.properties.getPort());
-		System.out.println("=========================================");
+		Logger logger
+				= Logger.getLogger(
+				SamplePropertyValidationApplication.class.getName());
+		logger.log(Level.INFO, "=========================================");
+		logger.log(Level.INFO, "Sample host: " + this.properties.getHost());
+		logger.log(Level.INFO, "Sample port: " + this.properties.getPort());
+		logger.log(Level.INFO, "=========================================");
 	}
 
 	public static void main(String[] args) {

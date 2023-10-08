@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.springframework.boot.loader.jarmode.JarMode;
 
@@ -96,8 +98,11 @@ public class LayerToolsJarMode implements JarMode {
 		}
 
 		private void printError(String errorMessage) {
-			System.out.println("Error: " + errorMessage);
-			System.out.println();
+			Logger logger
+					= Logger.getLogger(
+					Runner.class.getName());
+			logger.log(Level.INFO, "Error: " + errorMessage);
+			logger.log(Level.INFO, "");
 		}
 
 		private Deque<String> dequeOf(String... args) {

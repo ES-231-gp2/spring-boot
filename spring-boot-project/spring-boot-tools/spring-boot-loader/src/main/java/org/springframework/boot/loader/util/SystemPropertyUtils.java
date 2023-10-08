@@ -20,6 +20,8 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Helper class for resolving placeholders in texts. Usually applied to file paths.
@@ -188,8 +190,11 @@ public abstract class SystemPropertyUtils {
 				return propVal;
 			}
 		}
-		catch (Throwable ex) {
-			System.err.println("Could not resolve key '" + key + "' in '" + text
+		catch (Exception ex) {
+			Logger logger
+					= Logger.getLogger(
+					SystemPropertyUtils.class.getName());
+			logger.log(Level.SEVERE, "Could not resolve key '" + key + "' in '" + text
 					+ "' as system property or in environment: " + ex);
 		}
 		return defaultValue;
