@@ -186,22 +186,18 @@ public class JobLauncherApplicationRunner
 
 	private void executeLocalJobs(JobParameters jobParameters) throws JobExecutionException {
 		for (Job job : this.jobs) {
-			if (StringUtils.hasText(this.jobName)) {
-				if (!this.jobName.equals(job.getName())) {
-					logger.debug(LogMessage.format("Skipped job: %s", job.getName()));
-					continue;
-				}
+			if (StringUtils.hasText(this.jobName) && !this.jobName.equals(job.getName())) {
+				logger.debug(LogMessage.format("Skipped job: %s", job.getName()));
+				continue;
 			}
 			execute(job, jobParameters);
 		}
 	}
 
 	private void executeRegisteredJobs(JobParameters jobParameters) throws JobExecutionException {
-		if (this.jobRegistry != null && StringUtils.hasText(this.jobName)) {
-			if (!isLocalJob(this.jobName)) {
-				Job job = this.jobRegistry.getJob(this.jobName);
-				execute(job, jobParameters);
-			}
+		if (this.jobRegistry != null && StringUtils.hasText(this.jobName) && !isLocalJob(this.jobName)) {
+			Job job = this.jobRegistry.getJob(this.jobName);
+			execute(job, jobParameters);
 		}
 	}
 
