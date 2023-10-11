@@ -125,7 +125,7 @@ public class CloudFoundryActuatorAutoConfiguration {
 		allEndpoints.addAll(webEndpoints);
 		allEndpoints.addAll(servletEndpointsSupplier.getEndpoints());
 		allEndpoints.addAll(controllerEndpointsSupplier.getEndpoints());
-		return new CloudFoundryWebEndpointServletHandlerMapping(new EndpointMapping("/cloudfoundryapplication"),
+		return new CloudFoundryWebEndpointServletHandlerMapping(new EndpointMapping(BASE_PATH),
 				webEndpoints, endpointMediaTypes, getCorsConfiguration(), securityInterceptor, allEndpoints);
 	}
 
