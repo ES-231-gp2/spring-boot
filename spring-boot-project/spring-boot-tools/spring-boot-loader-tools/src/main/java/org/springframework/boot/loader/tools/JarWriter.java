@@ -49,7 +49,7 @@ public class JarWriter extends AbstractJarWriter implements AutoCloseable {
 	 * @throws IOException if the file cannot be opened
 	 * @throws FileNotFoundException if the file cannot be found
 	 */
-	public JarWriter(File file) throws FileNotFoundException, IOException {
+	public JarWriter(File file) throws IOException {
 		this(file, null);
 	}
 
