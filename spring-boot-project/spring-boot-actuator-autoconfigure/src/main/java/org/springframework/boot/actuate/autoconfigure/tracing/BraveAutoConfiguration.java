@@ -87,7 +87,7 @@ public class BraveAutoConfiguration {
 	 * Default value for application name if {@code spring.application.name} is not set.
 	 */
 	private static final String DEFAULT_APPLICATION_NAME = "application";
-	private static final SPAN_JOINING = "management.tracing.brave.span-joining-supported";
+	private static final String SPAN_JOINING = "management.tracing.brave.span-joining-supported";
 
 	@Bean
 	@ConditionalOnMissingBean

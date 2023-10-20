@@ -77,9 +77,6 @@
       <option name="NAME_COUNT_TO_USE_STAR_IMPORT" value="20" />
       <option name="NAME_COUNT_TO_USE_STAR_IMPORT_FOR_MEMBERS" value="20" />
     </JetCodeStyleSettings>
-    <ScalaCodeStyleSettings>
-      <option name="MULTILINE_STRING_CLOSING_QUOTES_ON_NEW_LINE" value="true" />
-    </ScalaCodeStyleSettings>
     <editorconfig>
       <option name="ENABLED" value="false" />
     </editorconfig>

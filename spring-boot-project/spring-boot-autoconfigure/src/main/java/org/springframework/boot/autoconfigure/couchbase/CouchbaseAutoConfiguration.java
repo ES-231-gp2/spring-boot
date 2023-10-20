@@ -88,7 +88,7 @@ public class CouchbaseAutoConfiguration {
 	@ConditionalOnMissingBean
 	public ClusterEnvironment couchbaseClusterEnvironment(CouchbaseConnectionDetails connectionDetails,
 			ObjectProvider<ClusterEnvironmentBuilderCustomizer> customizers, ObjectProvider<SslBundles> sslBundles) {
-		Builder builder = initializeEnvironmentBuilder(sslBundles.getIfAvailable());
+		Builder builder = initializeEnvironmentBuilder(connectionDetails, sslBundles.getIfAvailable());
 		customizers.orderedStream().forEach((customizer) -> customizer.customize(builder));
 		return builder.build();
 	}
@@ -103,7 +103,7 @@ public class CouchbaseAutoConfiguration {
 		return Cluster.connect(connectionDetails.getConnectionString(), options);
 	}
 
-	private ClusterEnvironment.Builder initializeEnvironmentBuilder(
+	private ClusterEnvironment.Builder initializeEnvironmentBuilder(CouchbaseConnectionDetails connectionDetails,
 			SslBundles sslBundles) {
 		ClusterEnvironment.Builder builder = ClusterEnvironment.builder();
 		Timeouts timeouts = this.properties.getEnv().getTimeouts();
@@ -215,6 +215,16 @@ public class CouchbaseAutoConfiguration {
 
 		CouchbaseCondition() {
 			super(ConfigurationPhase.REGISTER_BEAN);
+		}
+
+		@ConditionalOnProperty(prefix = "spring.couchbase", name = "connection-string")
+		private static final class CouchbaseUrlCondition {
+
+		}
+
+		@ConditionalOnBean(CouchbaseConnectionDetails.class)
+		private static final class CouchbaseConnectionDetailsCondition {
+
 		}
 
 	}

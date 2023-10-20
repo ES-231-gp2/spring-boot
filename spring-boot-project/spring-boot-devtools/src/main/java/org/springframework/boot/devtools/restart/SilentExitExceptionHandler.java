@@ -58,7 +58,7 @@ class SilentExitExceptionHandler implements UncaughtExceptionHandler {
 	}
 
 	protected Thread[] getAllThreads() {
-		ThreadPoolExecutor rootThreadGroup = getRootThreadGroup();
+		ThreadGroup rootThreadGroup = getRootThreadGroup();
 		Thread[] threads = new Thread[32];
 		int count = rootThreadGroup.enumerate(threads);
 		while (count == threads.length) {

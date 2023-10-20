@@ -63,7 +63,7 @@ class NoSuchBeanDefinitionFailureAnalyzer extends AbstractInjectionFailureAnalyz
 	private final MetadataReaderFactory metadataReaderFactory;
 
 	private final ConditionEvaluationReport report;
-	private final FORMAT_PATTERN = "\t- %s%n";
+	private final String FORMAT_PATTERN = "\t- %s%n";
 
 	NoSuchBeanDefinitionFailureAnalyzer(BeanFactory beanFactory) {
 		Assert.isInstanceOf(ConfigurableListableBeanFactory.class, beanFactory);

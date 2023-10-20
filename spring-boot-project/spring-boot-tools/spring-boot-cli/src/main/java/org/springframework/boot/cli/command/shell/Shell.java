@@ -23,12 +23,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.ServiceLoader;
 import java.util.Set;
-import java.util.function.Supplier;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import jline.console.ConsoleReader;
 import jline.console.completer.CandidateListCompletionHandler;
@@ -143,25 +139,21 @@ public class Shell {
 	}
 
 	private void printBanner() {
-		Logger logger
-				= Logger.getLogger(
-				Shell.class.getName());
 		String version = getClass().getPackage().getImplementationVersion();
 		version = (version != null) ? " (v" + version + ")" : "";
-		logger.log(Level.INFO, (Supplier<String>) ansi("Spring Boot", Code.BOLD).append(version, Code.FAINT));
-		logger.log(Level.INFO, "Hit TAB to complete. Type 'help' and hit RETURN for help, and 'exit' to quit.");
+		System.out.println(ansi("Spring Boot", Code.BOLD).append(version, Code.FAINT));
+		System.out.println(ansi("Hit TAB to complete. Type 'help' and hit RETURN for help, and 'exit' to quit."));
 	}
 
 	private void runInputLoop() throws Exception {
-		StringBuilder line;
-		while (this.consoleReader.readLine(getPrompt()) != null) {
-			line = new StringBuilder(this.consoleReader.readLine(getPrompt()));
-			while (Objects.equals(line.substring(-2), "\\")) {
-				line.append(line.substring(0, line.length() - 1));
-				line.append(this.consoleReader.readLine("> "));
+		String line;
+		while ((line = this.consoleReader.readLine(getPrompt())) != null) {
+			while (line.endsWith("\\")) {
+				line = line.substring(0, line.length() - 1);
+				line += this.consoleReader.readLine("> ");
 			}
 			if (StringUtils.hasLength(line)) {
-				String[] args = this.argumentDelimiter.parseArguments(String.valueOf(line));
+				String[] args = this.argumentDelimiter.parseArguments(line);
 				this.commandRunner.runAndHandleErrors(args);
 			}
 		}
@@ -183,10 +175,7 @@ public class Shell {
 		if (this.commandRunner.handleSigInt()) {
 			return;
 		}
-		Logger logger
-				= Logger.getLogger(
-				Shell.class.getName());
-		logger.log(Level.INFO, String.format("%nThanks for using Spring Boot"));
+		System.out.println(String.format("%nThanks for using Spring Boot"));
 		System.exit(1);
 	}
 
