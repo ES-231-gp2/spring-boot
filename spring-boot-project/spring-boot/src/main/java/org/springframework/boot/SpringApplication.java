@@ -25,6 +25,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -321,7 +323,7 @@ public class SpringApplication {
 			listeners.started(context, timeTakenToStartup);
 			callRunners(context, applicationArguments);
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			if (ex instanceof AbandonedRunException) {
 				throw ex;
 			}
@@ -334,7 +336,7 @@ public class SpringApplication {
 				listeners.ready(context, timeTakenToReady);
 			}
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			if (ex instanceof AbandonedRunException) {
 				throw ex;
 			}
@@ -806,7 +808,7 @@ public class SpringApplication {
 			ArgumentResolver argumentResolver = ArgumentResolver.of(ConfigurableApplicationContext.class, context);
 			return getSpringFactoriesInstances(SpringBootExceptionReporter.class, argumentResolver);
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			return Collections.emptyList();
 		}
 	}
@@ -820,7 +822,7 @@ public class SpringApplication {
 				}
 			}
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			// Continue with normal handling of the original failure
 		}
 		if (logger.isErrorEnabled()) {

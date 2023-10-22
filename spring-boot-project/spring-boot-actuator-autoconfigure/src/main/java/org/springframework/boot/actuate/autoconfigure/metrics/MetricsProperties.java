@@ -81,6 +81,9 @@ public class MetricsProperties {
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
 	@DeprecatedConfigurationProperty(replacement = "management.observations.key-values", since = "3.2.0")
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public Map<String, String> getTags() {
 		return this.tags;
 	}

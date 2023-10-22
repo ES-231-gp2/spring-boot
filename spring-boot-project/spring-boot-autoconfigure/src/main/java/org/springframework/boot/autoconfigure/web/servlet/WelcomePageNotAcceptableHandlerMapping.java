@@ -50,9 +50,4 @@ class WelcomePageNotAcceptableHandlerMapping extends AbstractUrlHandlerMapping {
 		return null;
 	}
 
-	@Override
-	protected Object getHandlerInternal(HttpServletRequest request) throws Exception {
-		return super.getHandlerInternal(request);
-	}
-
 }

@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -672,7 +673,7 @@ public final class ConfigurationPropertyName implements Comparable<Configuration
 	 * @return a {@link ConfigurationPropertyName}
 	 */
 	static ConfigurationPropertyName adapt(CharSequence name, char separator,
-			Function<CharSequence, CharSequence> elementValueProcessor) {
+			UnaryOperator<CharSequence> elementValueProcessor) {
 		Assert.notNull(name, "Name must not be null");
 		if (name.length() == 0) {
 			return EMPTY;
@@ -916,7 +917,7 @@ public final class ConfigurationPropertyName implements Comparable<Configuration
 			return parse(null);
 		}
 
-		Elements parse(Function<CharSequence, CharSequence> valueProcessor) {
+		Elements parse(UnaryOperator<CharSequence> valueProcessor) {
 			int length = this.source.length();
 			int openBracketCount = 0;
 			int start = 0;
@@ -977,7 +978,7 @@ public final class ConfigurationPropertyName implements Comparable<Configuration
 			return existingType;
 		}
 
-		private void add(int start, int end, ElementType type, Function<CharSequence, CharSequence> valueProcessor) {
+		private void add(int start, int end, ElementType type, UnaryOperator<CharSequence> valueProcessor) {
 			if ((end - start) < 1 || type == ElementType.EMPTY) {
 				return;
 			}

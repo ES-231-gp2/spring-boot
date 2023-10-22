@@ -55,7 +55,7 @@ public class InfluxDbAutoConfiguration {
 	@ConditionalOnMissingBean
 	public InfluxDB influxDb(InfluxDbProperties properties, ObjectProvider<InfluxDbOkHttpClientBuilderProvider> builder,
 			ObjectProvider<InfluxDbCustomizer> customizers) {
-		InfluxDB influxDb = new InfluxDBImpl(properties.getUrl().toString(), properties.getUser(),
+		InfluxDB influxDb = new InfluxDBImpl(properties.getUrl(), properties.getUser(),
 				properties.getPassword(), determineBuilder(builder.getIfAvailable()));
 		customizers.orderedStream().forEach((customizer) -> customizer.customize(influxDb));
 		return influxDb;

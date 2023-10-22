@@ -87,6 +87,7 @@ public class BraveAutoConfiguration {
 	 * Default value for application name if {@code spring.application.name} is not set.
 	 */
 	private static final String DEFAULT_APPLICATION_NAME = "application";
+	private static final String SPAN_JOINING = "management.tracing.brave.span-joining-supported";
 
 	@Bean
 	@ConditionalOnMissingBean
@@ -106,17 +107,17 @@ public class BraveAutoConfiguration {
 			if (properties.getPropagation().getType() != null
 					&& properties.getPropagation().getType().contains(PropagationType.W3C)) {
 				throw new IncompatibleConfigurationException("management.tracing.propagation.type",
-						"management.tracing.brave.span-joining-supported");
+						SPAN_JOINING);
 			}
 			if (properties.getPropagation().getType() == null
 					&& properties.getPropagation().getProduce().contains(PropagationType.W3C)) {
 				throw new IncompatibleConfigurationException("management.tracing.propagation.produce",
-						"management.tracing.brave.span-joining-supported");
+						SPAN_JOINING);
 			}
 			if (properties.getPropagation().getType() == null
 					&& properties.getPropagation().getConsume().contains(PropagationType.W3C)) {
 				throw new IncompatibleConfigurationException("management.tracing.propagation.consume",
-						"management.tracing.brave.span-joining-supported");
+						SPAN_JOINING);
 			}
 		}
 		String applicationName = environment.getProperty("spring.application.name", DEFAULT_APPLICATION_NAME);

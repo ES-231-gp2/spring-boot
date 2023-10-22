@@ -104,6 +104,9 @@ public class ExplodedArchive implements Archive {
 
 	@Override
 	@Deprecated(since = "2.3.10", forRemoval = false)
+	/**
+	 * @deprecated since 2.3.10
+	 */
 	public Iterator<Entry> iterator() {
 		return new EntryIterator(this.root, this.recursive, null, null);
 	}
@@ -323,6 +326,9 @@ public class ExplodedArchive implements Archive {
 
 		@Override
 		@Deprecated(since = "2.3.10", forRemoval = false)
+		/**
+		 * @deprecated since 2.3.10
+		 */
 		public Iterator<Entry> iterator() {
 			return Collections.emptyIterator();
 		}

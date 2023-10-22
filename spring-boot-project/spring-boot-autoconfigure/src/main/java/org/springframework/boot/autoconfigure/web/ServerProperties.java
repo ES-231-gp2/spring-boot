@@ -464,7 +464,10 @@ public class ServerProperties {
 		/**
 		 * Whether to reject requests with illegal header names or values.
 		 */
-		@Deprecated(since = "2.7.12", forRemoval = true) // Remove in 3.3
+		@Deprecated(since = "2.7.12", forRemoval = true)
+		/**
+		 * @deprecated since 2.7.12 for removal in 3.3
+		 */
 		private boolean rejectIllegalHeader = true;
 
 		/**
@@ -625,11 +628,17 @@ public class ServerProperties {
 
 		@Deprecated(since = "3.2.0", forRemoval = true)
 		@DeprecatedConfigurationProperty(reason = "The setting has been deprecated in Tomcat", since = "3.2.0")
+		/**
+		 * @deprecated since 3.2.0
+		 */
 		public boolean isRejectIllegalHeader() {
 			return this.rejectIllegalHeader;
 		}
 
 		@Deprecated(since = "3.2.0", forRemoval = true)
+		/**
+		 * @deprecated since 3.2.0
+		 */
 		public void setRejectIllegalHeader(boolean rejectIllegalHeader) {
 			this.rejectIllegalHeader = rejectIllegalHeader;
 		}
@@ -1638,11 +1647,17 @@ public class ServerProperties {
 
 		@DeprecatedConfigurationProperty(replacement = "server.undertow.decode-slash", since = "3.0.3")
 		@Deprecated(forRemoval = true, since = "3.0.3")
+		/**
+		 * @deprecated since 3.0.3
+		 */
 		public boolean isAllowEncodedSlash() {
 			return this.allowEncodedSlash;
 		}
 
 		@Deprecated(forRemoval = true, since = "3.0.3")
+		/**
+		 * @deprecated since 3.0.3
+		 */
 		public void setAllowEncodedSlash(boolean allowEncodedSlash) {
 			this.allowEncodedSlash = allowEncodedSlash;
 		}

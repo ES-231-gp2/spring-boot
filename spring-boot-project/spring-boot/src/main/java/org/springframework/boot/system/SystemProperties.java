@@ -16,6 +16,9 @@
 
 package org.springframework.boot.system;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Access to system properties.
  *
@@ -36,8 +39,11 @@ public final class SystemProperties {
 					return override;
 				}
 			}
-			catch (Throwable ex) {
-				System.err.println("Could not resolve '" + property + "' as system property: " + ex);
+			catch (Exception ex) {
+				Logger logger
+						= Logger.getLogger(
+						SystemProperties.class.getName());
+				logger.log(Level.SEVERE, "Could not resolve '" + property + "' as system property: " + ex);
 			}
 		}
 		return null;

@@ -16,6 +16,8 @@
 
 package smoketest.data.ldap;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,19 +33,21 @@ public class SampleLdapApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		Logger logger
+				= Logger.getLogger(
+				SampleLdapApplication.class.getName());
 		// fetch all people
-		System.out.println("People found with findAll():");
-		System.out.println("-------------------------------");
+		logger.log(Level.INFO, "People found with findAll():");
+		logger.log(Level.INFO, "-------------------------------");
 		for (Person person : this.repository.findAll()) {
-			System.out.println(person);
+			logger.log(Level.INFO, person.toString());
 		}
-		System.out.println();
+		logger.log(Level.INFO, "");
 
 		// fetch an individual person
-		System.out.println("Person found with findByPhone('+46 555-123456'):");
-		System.out.println("--------------------------------");
-		System.out.println(this.repository.findByPhone("+46 555-123456"));
+		logger.log(Level.INFO, "Person found with findByPhone('+46 555-123456'):");
+		logger.log(Level.INFO, "--------------------------------");
+		logger.log(Level.INFO, this.repository.findByPhone("+46 555-123456").toString());
 	}
 
 	public static void main(String[] args) {

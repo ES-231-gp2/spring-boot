@@ -118,7 +118,7 @@ class NoSuchMethodFailureAnalyzer extends AbstractFailureAnalyzer<NoSuchMethodEr
 			return Collections.list(NoSuchMethodFailureAnalyzer.class.getClassLoader()
 				.getResources(ClassUtils.convertClassNameToResourcePath(className) + ".class"));
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			return null;
 		}
 	}
@@ -127,7 +127,7 @@ class NoSuchMethodFailureAnalyzer extends AbstractFailureAnalyzer<NoSuchMethodEr
 		try {
 			return Class.forName(className, false, getClass().getClassLoader());
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			return null;
 		}
 	}
@@ -142,7 +142,7 @@ class NoSuchMethodFailureAnalyzer extends AbstractFailureAnalyzer<NoSuchMethodEr
 			}
 			return typeHierarchy;
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			return null;
 		}
 	}

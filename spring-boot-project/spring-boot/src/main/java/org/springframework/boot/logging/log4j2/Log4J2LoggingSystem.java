@@ -186,7 +186,7 @@ public class Log4J2LoggingSystem extends AbstractLoggingSystem {
 				return true;
 			}
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			// Ignore. No java.util.logging bridge is installed.
 		}
 		return false;
@@ -226,7 +226,7 @@ public class Log4J2LoggingSystem extends AbstractLoggingSystem {
 				rootLogger.removeHandler(handlers[0]);
 			}
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			// Ignore and continue
 		}
 	}

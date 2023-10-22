@@ -86,7 +86,7 @@ class OnAvailableEndpointCondition extends SpringBootCondition {
 		try {
 			return ClassUtils.forName(methodMetadata.getReturnTypeName(), context.getClassLoader());
 		}
-		catch (Throwable ex) {
+		catch (Exception ex) {
 			throw new IllegalStateException("Failed to extract endpoint id for "
 					+ methodMetadata.getDeclaringClassName() + "." + methodMetadata.getMethodName(), ex);
 		}

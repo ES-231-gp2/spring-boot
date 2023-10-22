@@ -38,6 +38,8 @@ import org.springframework.context.annotation.Configuration;
  */
 class CassandraHealthContributorConfigurations {
 
+	
+
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnBean(CqlSession.class)
 	static class CassandraDriverConfiguration

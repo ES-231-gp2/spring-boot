@@ -86,7 +86,7 @@ public final class SnakeTimer {
 			try {
 				snake.sendMessage(message);
 			}
-			catch (Throwable ex) {
+			catch (Exception ex) {
 				// if Snake#sendMessage fails the client is removed
 				removeSnake(snake);
 			}
@@ -101,7 +101,7 @@ public final class SnakeTimer {
 				try {
 					tick();
 				}
-				catch (Throwable ex) {
+				catch (Exception ex) {
 					logger.error("Caught to prevent timer from shutting down", ex);
 				}
 			}

@@ -738,33 +738,51 @@ public class FlywayProperties {
 
 	@DeprecatedConfigurationProperty(replacement = "spring.flyway.oracle.sqlplus", since = "3.2.0")
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public Boolean getOracleSqlplus() {
 		return getOracle().getSqlplus();
 	}
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public void setOracleSqlplus(Boolean oracleSqlplus) {
 		getOracle().setSqlplus(oracleSqlplus);
 	}
 
 	@DeprecatedConfigurationProperty(replacement = "spring.flyway.oracle.sqlplus-warn", since = "3.2.0")
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public Boolean getOracleSqlplusWarn() {
 		return getOracle().getSqlplusWarn();
 	}
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public void setOracleSqlplusWarn(Boolean oracleSqlplusWarn) {
 		getOracle().setSqlplusWarn(oracleSqlplusWarn);
 	}
 
 	@DeprecatedConfigurationProperty(replacement = "spring.flyway.oracle.wallet-location", since = "3.2.0")
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public String getOracleWalletLocation() {
 		return getOracle().getWalletLocation();
 	}
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public void setOracleWalletLocation(String oracleWalletLocation) {
 		getOracle().setWalletLocation(oracleWalletLocation);
 	}
@@ -811,11 +829,17 @@ public class FlywayProperties {
 
 	@DeprecatedConfigurationProperty(replacement = "spring.flyway.oracle.kerberos-cache-file", since = "3.2.0")
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public String getOracleKerberosCacheFile() {
 		return getOracle().getKerberosCacheFile();
 	}
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public void setOracleKerberosCacheFile(String oracleKerberosCacheFile) {
 		getOracle().setKerberosCacheFile(oracleKerberosCacheFile);
 	}
@@ -830,11 +854,17 @@ public class FlywayProperties {
 
 	@DeprecatedConfigurationProperty(replacement = "spring.flyway.sqlserver.kerberos-login-file")
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public String getSqlServerKerberosLoginFile() {
 		return getSqlserver().getKerberosLoginFile();
 	}
 
 	@Deprecated(since = "3.2.0", forRemoval = true)
+	/**
+	 * @deprecated since 3.2.0
+	 */
 	public void setSqlServerKerberosLoginFile(String sqlServerKerberosLoginFile) {
 		getSqlserver().setKerberosLoginFile(sqlServerKerberosLoginFile);
 	}

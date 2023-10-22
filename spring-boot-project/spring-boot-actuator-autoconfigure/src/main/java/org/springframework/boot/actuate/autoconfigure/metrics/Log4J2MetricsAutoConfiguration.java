@@ -63,7 +63,7 @@ public class Log4J2MetricsAutoConfiguration {
 						.match("LoggerContext was an instance of org.apache.logging.log4j.core.LoggerContext");
 				}
 			}
-			catch (Throwable ex) {
+			catch (Exception ex) {
 				// Continue with no match
 			}
 			return ConditionOutcome

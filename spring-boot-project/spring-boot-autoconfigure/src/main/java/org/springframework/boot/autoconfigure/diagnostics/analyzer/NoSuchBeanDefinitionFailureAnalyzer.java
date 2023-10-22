@@ -63,6 +63,7 @@ class NoSuchBeanDefinitionFailureAnalyzer extends AbstractInjectionFailureAnalyz
 	private final MetadataReaderFactory metadataReaderFactory;
 
 	private final ConditionEvaluationReport report;
+	private final String FORMAT_PATTERN = "\t- %s%n";
 
 	NoSuchBeanDefinitionFailureAnalyzer(BeanFactory beanFactory) {
 		Assert.isInstanceOf(ConfigurableListableBeanFactory.class, beanFactory);
@@ -88,17 +89,17 @@ class NoSuchBeanDefinitionFailureAnalyzer extends AbstractInjectionFailureAnalyz
 			if (injectionAnnotations.length > 0) {
 				message.append(String.format("%nThe injection point has the following annotations:%n"));
 				for (Annotation injectionAnnotation : injectionAnnotations) {
-					message.append(String.format("\t- %s%n", injectionAnnotation));
+					message.append(String.format(FORMAT_PATTERN, injectionAnnotation));
 				}
 			}
 		}
 		if (!autoConfigurationResults.isEmpty() || !userConfigurationResults.isEmpty()) {
 			message.append(String.format("%nThe following candidates were found but could not be injected:%n"));
 			for (AutoConfigurationResult result : autoConfigurationResults) {
-				message.append(String.format("\t- %s%n", result));
+				message.append(String.format(FORMAT_PATTERN, result));
 			}
 			for (UserConfigurationResult result : userConfigurationResults) {
-				message.append(String.format("\t- %s%n", result));
+				message.append(String.format(FORMAT_PATTERN, result));
 			}
 		}
 		String action = String.format("Consider %s %s in your configuration.",
