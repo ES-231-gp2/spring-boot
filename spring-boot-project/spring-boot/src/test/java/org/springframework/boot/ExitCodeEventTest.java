@@ -18,31 +18,9 @@ package org.springframework.boot;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class ExitCodeEventTest {
-	/**
-	 * Method under test: {@link ExitCodeEvent#ExitCodeEvent(Object, int)}
-	 */
-	@Test
-	@Disabled("TODO: Complete this test")
-	void testConstructor() {
-		// TODO: Complete this test.
-		//   Diffblue AI was unable to find a test
-
-		// Arrange
-		// TODO: Populate arranged inputs
-		Object object = null;
-		int exitCode = 0;
-
-		// Act
-		ExitCodeEvent actualExitCodeEvent = new ExitCodeEvent(object, exitCode);
-
-		// Assert
-		// TODO: Add assertions on result
-	}
-
 	/**
 	 * Method under test: {@link ExitCodeEvent#getExitCode()}
 	 */
@@ -51,4 +29,3 @@ class ExitCodeEventTest {
 		assertEquals(1, (new ExitCodeEvent("Source", 1)).getExitCode());
 	}
 }
-

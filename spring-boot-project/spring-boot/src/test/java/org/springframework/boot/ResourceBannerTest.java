@@ -20,11 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.origin.OriginTrackedResource;
@@ -35,70 +32,6 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 
 class ResourceBannerTest {
-	/**
-	 * Method under test: {@link ResourceBanner#ResourceBanner(Resource)}
-	 */
-	@Test
-	@Disabled("TODO: Complete this test")
-	void testConstructor() throws FileNotFoundException, UnsupportedEncodingException {
-		// TODO: Complete this test.
-		//   Reason: R011 Sandboxing policy violation.
-		//   Diffblue Cover ran code in your project that tried
-		//     to access files (file 'foo', permission 'write').
-		//   Diffblue Cover's default sandboxing policy disallows this in order to prevent
-		//   your code from damaging your system environment.
-		//   See https://diff.blue/R011 to resolve this issue.
-
-		ByteArrayResource resource = new ByteArrayResource("AXAXAXAX".getBytes("UTF-8"));
-		ResourceBanner actualResourceBanner = new ResourceBanner(
-				OriginTrackedResource.of(resource, new SystemEnvironmentOrigin("Property")));
-		ApplicationEnvironment environment = new ApplicationEnvironment();
-		Class<Object> sourceClass = Object.class;
-		actualResourceBanner.printBanner(environment, sourceClass, new PrintStream("foo"));
-	}
-
-	/**
-	 * Method under test: {@link ResourceBanner#ResourceBanner(Resource)}
-	 */
-	@Test
-	@Disabled("TODO: Complete this test")
-	void testConstructor2() throws FileNotFoundException {
-		// TODO: Complete this test.
-		//   Reason: R011 Sandboxing policy violation.
-		//   Diffblue Cover ran code in your project that tried
-		//     to access files (file 'foo', permission 'write').
-		//   Diffblue Cover's default sandboxing policy disallows this in order to prevent
-		//   your code from damaging your system environment.
-		//   See https://diff.blue/R011 to resolve this issue.
-
-		ResourceBanner actualResourceBanner = new ResourceBanner(null);
-		ApplicationEnvironment environment = new ApplicationEnvironment();
-		Class<Object> sourceClass = Object.class;
-		actualResourceBanner.printBanner(environment, sourceClass, new PrintStream("foo"));
-	}
-
-	/**
-	 * Method under test: {@link ResourceBanner#printBanner(Environment, Class, PrintStream)}
-	 */
-	@Test
-	@Disabled("TODO: Complete this test")
-	void testPrintBanner() throws FileNotFoundException, UnsupportedEncodingException {
-		// TODO: Complete this test.
-		//   Reason: R011 Sandboxing policy violation.
-		//   Diffblue Cover ran code in your project that tried
-		//     to access files (file 'foo', permission 'write').
-		//   Diffblue Cover's default sandboxing policy disallows this in order to prevent
-		//   your code from damaging your system environment.
-		//   See https://diff.blue/R011 to resolve this issue.
-
-		ByteArrayResource resource = new ByteArrayResource("AXAXAXAX".getBytes("UTF-8"));
-		ResourceBanner resourceBanner = new ResourceBanner(
-				OriginTrackedResource.of(resource, new SystemEnvironmentOrigin("Property")));
-		ApplicationEnvironment environment = new ApplicationEnvironment();
-		Class<Object> sourceClass = Object.class;
-		resourceBanner.printBanner(environment, sourceClass, new PrintStream("foo"));
-	}
-
 	/**
 	 * Method under test: {@link ResourceBanner#getPropertyResolvers(Environment, Class)}
 	 */
@@ -235,4 +168,3 @@ class ResourceBannerTest {
 				.getBootVersion());
 	}
 }
-

@@ -24,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class DefaultApplicationArgumentsTest {
@@ -36,22 +35,6 @@ class DefaultApplicationArgumentsTest {
 		DefaultApplicationArguments actualDefaultApplicationArguments = new DefaultApplicationArguments("Args");
 		assertEquals(1, actualDefaultApplicationArguments.getNonOptionArgs().size());
 		assertTrue(actualDefaultApplicationArguments.getOptionNames().isEmpty());
-	}
-
-	/**
-	 * Method under test: {@link DefaultApplicationArguments#DefaultApplicationArguments(String[])}
-	 */
-	@Test
-	@Disabled("TODO: Complete this test")
-	void testConstructor2() {
-		// TODO: Complete this test.
-		//   Reason: R013 No inputs found that don't throw a trivial exception.
-		//   Diffblue Cover tried to run the arrange/act section, but the method under
-		//   test threw
-		//   java.lang.IllegalArgumentException: Args must not be null
-		//   See https://diff.blue/R013 to resolve this issue.
-
-		new DefaultApplicationArguments(null);
 	}
 
 	/**
@@ -108,4 +91,3 @@ class DefaultApplicationArgumentsTest {
 		assertEquals("Args", actualNonOptionArgs.get(0));
 	}
 }
-

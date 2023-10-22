@@ -18,11 +18,7 @@ package org.springframework.boot;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import org.springframework.core.env.ConfigurablePropertyResolver;
-import org.springframework.core.env.MutablePropertySources;
 
 class ApplicationEnvironmentTest {
 	/**
@@ -40,30 +36,4 @@ class ApplicationEnvironmentTest {
 	void testDoGetDefaultProfilesProperty() {
 		assertNull((new ApplicationEnvironment()).doGetDefaultProfilesProperty());
 	}
-
-	/**
-	 * Method under test: {@link ApplicationEnvironment#createPropertyResolver(MutablePropertySources)}
-	 */
-	@Test
-	@Disabled("TODO: Complete this test")
-	void testCreatePropertyResolver() {
-		// TODO: Complete this test.
-		//   Reason: R005 Unable to load class.
-		//   Class: joptsimple.OptionSet
-		//   Please check that the class is available on your test runtime classpath.
-		//   See https://diff.blue/R005 to resolve this issue.
-
-		// Arrange
-		// TODO: Populate arranged inputs
-		ApplicationEnvironment applicationEnvironment = null;
-		MutablePropertySources propertySources = null;
-
-		// Act
-		ConfigurablePropertyResolver actualCreatePropertyResolverResult = applicationEnvironment
-				.createPropertyResolver(propertySources);
-
-		// Assert
-		// TODO: Add assertions on result
-	}
 }
-

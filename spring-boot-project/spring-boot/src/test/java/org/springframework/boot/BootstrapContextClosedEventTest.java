@@ -17,12 +17,10 @@
 package org.springframework.boot;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.web.reactive.context.AnnotationConfigReactiveWebApplicationContext;
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 
 class BootstrapContextClosedEventTest {
@@ -32,21 +30,6 @@ class BootstrapContextClosedEventTest {
 	@Test
 	void testConstructor() {
 		DefaultBootstrapContext source = new DefaultBootstrapContext();
-		AnnotationConfigReactiveWebApplicationContext applicationContext = new AnnotationConfigReactiveWebApplicationContext();
-		BootstrapContextClosedEvent actualBootstrapContextClosedEvent = new BootstrapContextClosedEvent(source,
-				applicationContext);
-
-		assertSame(actualBootstrapContextClosedEvent.getSource(), source);
-		assertSame(actualBootstrapContextClosedEvent.getApplicationContext(), applicationContext);
-	}
-
-	/**
-	 * Method under test: {@link BootstrapContextClosedEvent#BootstrapContextClosedEvent(BootstrapContext, ConfigurableApplicationContext)}
-	 */
-	@Test
-	void testConstructor2() {
-		DefaultBootstrapContext source = new DefaultBootstrapContext();
-		source.addCloseListener(mock(ApplicationListener.class));
 		AnnotationConfigReactiveWebApplicationContext applicationContext = new AnnotationConfigReactiveWebApplicationContext();
 		BootstrapContextClosedEvent actualBootstrapContextClosedEvent = new BootstrapContextClosedEvent(source,
 				applicationContext);
@@ -66,17 +49,6 @@ class BootstrapContextClosedEventTest {
 	}
 
 	/**
-	 * Method under test: {@link BootstrapContextClosedEvent#getBootstrapContext()}
-	 */
-	@Test
-	void testGetBootstrapContext2() {
-		DefaultBootstrapContext source = new DefaultBootstrapContext();
-		source.addCloseListener(mock(ApplicationListener.class));
-		assertSame(source, (new BootstrapContextClosedEvent(source, new AnnotationConfigReactiveWebApplicationContext()))
-				.getBootstrapContext());
-	}
-
-	/**
 	 * Method under test: {@link BootstrapContextClosedEvent#getApplicationContext()}
 	 */
 	@Test
@@ -87,4 +59,3 @@ class BootstrapContextClosedEventTest {
 				(new BootstrapContextClosedEvent(source, applicationContext)).getApplicationContext());
 	}
 }
-

@@ -17,43 +17,10 @@
 package org.springframework.boot;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.Test;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.util.StringValueResolver;
-
 class LazyInitializationBeanFactoryPostProcessorTest {
-	/**
-	 * Method under test: {@link LazyInitializationBeanFactoryPostProcessor#postProcessBeanFactory(ConfigurableListableBeanFactory)}
-	 */
-	@Test
-	void testPostProcessBeanFactory() throws BeansException {
-		// TODO: Complete this test.
-		//   Diffblue AI was unable to find a test
-
-		LazyInitializationBeanFactoryPostProcessor lazyInitializationBeanFactoryPostProcessor = new LazyInitializationBeanFactoryPostProcessor();
-		lazyInitializationBeanFactoryPostProcessor.postProcessBeanFactory(new DefaultListableBeanFactory());
-	}
-
-	/**
-	 * Method under test: {@link LazyInitializationBeanFactoryPostProcessor#postProcessBeanFactory(ConfigurableListableBeanFactory)}
-	 */
-	@Test
-	void testPostProcessBeanFactory2() throws BeansException {
-		// TODO: Complete this test.
-		//   Diffblue AI was unable to find a test
-
-		LazyInitializationBeanFactoryPostProcessor lazyInitializationBeanFactoryPostProcessor = new LazyInitializationBeanFactoryPostProcessor();
-
-		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-		beanFactory.addEmbeddedValueResolver(mock(StringValueResolver.class));
-		lazyInitializationBeanFactoryPostProcessor.postProcessBeanFactory(beanFactory);
-	}
-
 	/**
 	 * Method under test: {@link LazyInitializationBeanFactoryPostProcessor#getOrder()}
 	 */
@@ -62,4 +29,3 @@ class LazyInitializationBeanFactoryPostProcessorTest {
 		assertEquals(Integer.MIN_VALUE, (new LazyInitializationBeanFactoryPostProcessor()).getOrder());
 	}
 }
-

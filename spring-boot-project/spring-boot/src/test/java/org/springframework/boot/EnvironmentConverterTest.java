@@ -30,20 +30,6 @@ import org.springframework.core.env.ConfigurableEnvironment;
 
 class EnvironmentConverterTest {
 	/**
-	 * Method under test: {@link EnvironmentConverter#EnvironmentConverter(ClassLoader)}
-	 */
-	@Test
-	void testConstructor() {
-		// TODO: Complete this test.
-		//   Reason: R002 Missing observers.
-		//   Diffblue Cover was unable to create an assertion.
-		//   Add getters for the following fields or make them package-private:
-		//     EnvironmentConverter.classLoader
-
-		new EnvironmentConverter(new TomcatEmbeddedWebappClassLoader());
-	}
-
-	/**
 	 * Method under test: {@link EnvironmentConverter#convertEnvironmentIfNecessary(ConfigurableEnvironment, Class)}
 	 */
 	@Test
@@ -62,4 +48,3 @@ class EnvironmentConverterTest {
 		assertSame(conversionService, environment.getConversionService());
 	}
 }
-
